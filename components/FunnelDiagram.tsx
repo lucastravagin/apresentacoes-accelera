@@ -21,11 +21,13 @@ export default function FunnelDiagram() {
           viewport={{ once: true }}
           style={{ borderColor: stage.color }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center' }}>
-            <stage.icon size={32} style={{ color: stage.color }} />
-            <div>
-              <h3 style={{ margin: 0, fontSize: '1.5rem' }}>{stage.title}</h3>
-              <p style={{ margin: '0.5rem 0 0', color: stage.color, fontSize: '1.25rem', fontWeight: 'bold' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', maxWidth: '100%' }}>
+            <stage.icon size={36} style={{ color: stage.color, flexShrink: 0 }} />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <h3 style={{ margin: 0, fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)', lineHeight: 'var(--line-height-tight)' }}>
+                {stage.title}
+              </h3>
+              <p style={{ margin: '0.5rem 0 0', color: stage.color, fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-bold)', lineHeight: 'var(--line-height-tight)' }}>
                 {stage.value}
               </p>
             </div>

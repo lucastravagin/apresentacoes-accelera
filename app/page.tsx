@@ -14,6 +14,7 @@ import FunnelDiagram from '@/components/FunnelDiagram'
 import PlatformDiagram from '@/components/PlatformDiagram'
 import AnimatedBackground from '@/components/AnimatedBackground'
 import Carousel from '@/components/Carousel'
+import Navigation from '@/components/Navigation'
 import presentationData from '@/presentation.json'
 
 export default function Home() {
@@ -46,7 +47,8 @@ export default function Home() {
       <AnimatedBackground />
       <ProgressBar progress={scrollProgress} />
       <MiniMap sections={sections} currentId={currentSection} />
-      
+      <Navigation showNext nextHref="/parte2" nextLabel="Parte 2" />
+
       <div className="container">
         {sections.map((section: any, idx: number) => (
           <Section key={section.id} id={section.id}>
@@ -134,7 +136,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 style={{ textAlign: 'center', maxWidth: '600px' }}
               >
-                <p style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>{section.teaser}</p>
+                <p style={{ fontSize: 'var(--font-size-base)', lineHeight: 'var(--line-height-normal)', marginBottom: '1rem' }}>{section.teaser}</p>
                 {section.cta && (
                   <a href={section.cta.href} style={{ textDecoration: 'none' }}>
                     <button className="cta-button">

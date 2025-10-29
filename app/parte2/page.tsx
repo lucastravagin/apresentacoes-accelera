@@ -11,6 +11,7 @@ import MiniMap from '@/components/MiniMap'
 import ProgressBar from '@/components/ProgressBar'
 import AnimatedBackground from '@/components/AnimatedBackground'
 import Carousel from '@/components/Carousel'
+import Navigation from '@/components/Navigation'
 import presentation2Data from '@/presentation2.json'
 
 export default function Parte2() {
@@ -43,7 +44,8 @@ export default function Parte2() {
       <AnimatedBackground />
       <ProgressBar progress={scrollProgress} />
       <MiniMap sections={sections} currentId={currentSection} />
-      
+      <Navigation showBack backHref="/" backLabel="Parte 1" />
+
       <div className="container">
         {sections.map((section: any) => (
           <Section key={section.id} id={section.id}>
@@ -68,8 +70,8 @@ export default function Parte2() {
                   transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
                 >
-                  <h3 style={{ fontSize: '2rem', marginBottom: '1rem' }}>{section.left.title}</h3>
-                  <p style={{ fontSize: '1.125rem', color: 'var(--text-muted)' }}>{section.left.body}</p>
+                  <h3 style={{ fontSize: 'var(--font-size-xl)', fontWeight: 'var(--font-weight-bold)', lineHeight: 'var(--line-height-tight)', marginBottom: '1rem' }}>{section.left.title}</h3>
+                  <p style={{ fontSize: 'var(--font-size-base)', lineHeight: 'var(--line-height-normal)', color: 'var(--text-muted)' }}>{section.left.body}</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, x: 30 }}
@@ -148,9 +150,10 @@ export default function Parte2() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
                 viewport={{ once: true }}
-                style={{ 
-                  textAlign: 'center', 
-                  fontSize: '1.25rem', 
+                style={{
+                  textAlign: 'center',
+                  fontSize: 'var(--font-size-base)',
+                  lineHeight: 'var(--line-height-normal)',
                   marginTop: '2rem',
                   color: 'var(--purple)'
                 }}
@@ -165,11 +168,12 @@ export default function Parte2() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
                 viewport={{ once: true }}
-                style={{ 
-                  textAlign: 'center', 
-                  fontSize: '1.5rem', 
+                style={{
+                  textAlign: 'center',
+                  fontSize: 'var(--font-size-lg)',
+                  lineHeight: 'var(--line-height-tight)',
                   marginTop: '2rem',
-                  fontWeight: 'bold'
+                  fontWeight: 'var(--font-weight-bold)'
                 }}
               >
                 {section.tagline}
