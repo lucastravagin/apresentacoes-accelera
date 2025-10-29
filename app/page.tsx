@@ -10,8 +10,9 @@ import MetricBadge from '@/components/MetricBadge'
 import MiniMap from '@/components/MiniMap'
 import ProgressBar from '@/components/ProgressBar'
 import HeroVisual from '@/components/HeroVisual'
-import FunnelDiagram from '@/components/FunnelDiagram'
+import TimelineInteractive from '@/components/TimelineInteractive'
 import PlatformDiagram from '@/components/PlatformDiagram'
+import PlatformFeatures from '@/components/PlatformFeatures'
 import AnimatedBackground from '@/components/AnimatedBackground'
 import Carousel from '@/components/Carousel'
 import Navigation from '@/components/Navigation'
@@ -67,8 +68,13 @@ export default function Home() {
               </motion.div>
             )}
             
-            {section.id === 'intro' && <FunnelDiagram />}
-            {section.id === 'model' && <PlatformDiagram />}
+            {section.id === 'intro' && <TimelineInteractive />}
+            {section.id === 'model' && (
+              <>
+                <PlatformDiagram />
+                <PlatformFeatures />
+              </>
+            )}
 
             {section.grid && (
               <motion.div

@@ -166,30 +166,6 @@ export default function PlatformDiagram() {
         </motion.div>
       </div>
 
-      {/* Cards de recursos */}
-      <motion.div
-        className="platform-features"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <div className="platform-feature-card">
-          <div className="platform-feature-number">01</div>
-          <h4>Orquestração Inteligente</h4>
-          <p>Todos os agentes trabalham juntos, compartilhando contexto e insights</p>
-        </div>
-        <div className="platform-feature-card">
-          <div className="platform-feature-number">02</div>
-          <h4>Escalabilidade Automática</h4>
-          <p>A plataforma se adapta à demanda dos seus clientes sem intervenção</p>
-        </div>
-        <div className="platform-feature-card">
-          <div className="platform-feature-number">03</div>
-          <h4>Whitelabel Completo</h4>
-          <p>Sua marca em todos os pontos de contato, nossa tecnologia nos bastidores</p>
-        </div>
-      </motion.div>
     </div>
   )
 }
