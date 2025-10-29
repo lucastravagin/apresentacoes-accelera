@@ -418,28 +418,295 @@ body {
 .funnel-stage:nth-child(3) { width: 60%; }
 .funnel-stage:nth-child(4) { width: 40%; }
 
+.platform-diagram-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 .platform-diagram {
-  max-width: 1200px;
-  margin: 3rem auto;
   position: relative;
+  width: 100%;
+  height: 600px;
+  margin: 3rem auto;
+  perspective: 1000px;
+}
+
+.platform-connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .platform-node {
-  background: linear-gradient(135deg, var(--bg-card-alt), var(--bg-card));
-  border: 2px solid var(--purple);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  position: relative;
-  animation: glow 3s ease-in-out infinite;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  min-height: 140px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
 }
 
-.platform-connector {
-  stroke: var(--purple);
-  stroke-width: 2;
-  fill: none;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: drawLine 2s ease forwards;
+.platform-node-large {
+  width: 220px;
+  min-height: 160px;
+}
+
+.platform-node-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(107, 67, 239, 0.15), rgba(23, 22, 45, 0.9));
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(107, 67, 239, 0.3);
+  border-radius: 20px;
+  padding: 1.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(107, 67, 239, 0.15);
+}
+
+.platform-node:hover .platform-node-inner {
+  background: linear-gradient(135deg, rgba(107, 67, 239, 0.25), rgba(23, 22, 45, 0.95));
+  border-color: var(--purple);
+  box-shadow: 0 16px 48px rgba(107, 67, 239, 0.4);
+}
+
+.platform-node-inner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(107, 67, 239, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+
+.platform-node:hover .platform-node-inner::before {
+  left: 100%;
+}
+
+.platform-node-icon-wrapper {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(107, 67, 239, 0.4);
+}
+
+.platform-node-large .platform-node-icon-wrapper {
+  width: 64px;
+  height: 64px;
+}
+
+.platform-node-icon {
+  width: 28px;
+  height: 28px;
+  color: white;
+  z-index: 2;
+}
+
+.platform-node-large .platform-node-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.platform-node-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: var(--purple);
+  opacity: 0.5;
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+.platform-node-content {
+  text-align: center;
+}
+
+.platform-node-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.platform-node-description {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.platform-node-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  color: white;
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  padding: 4px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(107, 67, 239, 0.4);
+}
+
+.platform-node-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(107, 67, 239, 0.4) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 20px;
+  filter: blur(20px);
+}
+
+.platform-node:hover .platform-node-glow {
+  opacity: 1;
+}
+
+.platform-flow-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(107, 67, 239, 0.1);
+  border: 1px solid rgba(107, 67, 239, 0.3);
+  border-radius: 999px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--purple);
+  backdrop-filter: blur(10px);
+}
+
+.platform-flow-indicator svg {
+  animation: flow-arrow 1.5s ease-in-out infinite;
+}
+
+@keyframes flow-arrow {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.platform-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.platform-feature-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(23, 22, 45, 0.6), rgba(12, 12, 12, 0.8));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(107, 67, 239, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.platform-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--purple), var(--purple-dark));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.platform-feature-card:hover {
+  border-color: var(--purple);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(107, 67, 239, 0.3);
+}
+
+.platform-feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.platform-feature-number {
+  display: inline-block;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.platform-feature-card h4 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.platform-feature-card p {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--text-muted);
+  margin: 0;
 }
 
 .hero-visual {
@@ -502,4 +769,101 @@ body {
     padding: 2rem 2.5rem;
   }
   .hero-visual { height: 300px; }
+
+  .platform-diagram {
+    height: 500px;
+  }
+
+  .platform-node {
+    width: 140px;
+    min-height: 120px;
+  }
+
+  .platform-node-large {
+    width: 160px;
+    min-height: 140px;
+  }
+
+  .platform-node-inner {
+    padding: 1rem;
+  }
+
+  .platform-node-icon-wrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .platform-node-large .platform-node-icon-wrapper {
+    width: 56px;
+    height: 56px;
+  }
+
+  .platform-node-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .platform-node-large .platform-node-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .platform-node-title {
+    font-size: var(--font-size-sm);
+  }
+
+  .platform-node-description {
+    font-size: 10px;
+  }
+
+  .platform-flow-indicator {
+    font-size: 10px;
+    padding: 0.5rem 1rem;
+  }
+
+  .platform-features {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .platform-feature-card {
+    padding: 1.5rem;
+  }
+
+  .platform-feature-number {
+    font-size: var(--font-size-xl);
+  }
+
+  .navigation {
+    top: 1rem;
+    right: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .platform-diagram {
+    height: 450px;
+  }
+
+  .platform-node {
+    width: 110px;
+    min-height: 100px;
+  }
+
+  .platform-node-large {
+    width: 130px;
+    min-height: 120px;
+  }
+
+  .platform-node-inner {
+    padding: 0.75rem;
+  }
 }
