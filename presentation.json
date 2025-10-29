@@ -1,0 +1,419 @@
+{
+  "meta": {
+    "version": "1.1",
+    "title": "Plataforma de IA como Serviço (PaaS) — Whitelabel",
+    "subtitle": "Você vende IA com a sua marca. Nós operamos por trás.",
+    "brand_mode": "whitelabel",
+    "typography": { "primary": "Inter", "mono_optional": "JetBrains Mono" },
+    "navigation": {
+      "scrollSnap": true,
+      "showProgressBar": true,
+      "showMiniMap": true
+    },
+    "accessibility": {
+      "minFontSizePx": 16,
+      "prefersReducedMotionFallback": true
+    }
+  },
+
+  "minimap": [
+    { "id": "cover", "label": "Capa" },
+    { "id": "model", "label": "Modelo de Negócio" },
+    { "id": "intro", "label": "Início" },
+    { "id": "lp", "label": "LPs" },
+    { "id": "copy", "label": "Agentes de Copy" },
+    { "id": "playbooks", "label": "Playbooks" },
+    { "id": "traffic", "label": "Tráfego IA" },
+    { "id": "creatives", "label": "Criativos IA" },
+    { "id": "flow", "label": "Fluxo" },
+    { "id": "outcomes", "label": "Resultados" },
+    { "id": "handoff", "label": "Próxima etapa" }
+  ],
+
+  "sections": [
+    {
+      "id": "cover",
+      "component": "Section",
+      "motion": {
+        "initial": { "opacity": 0, "y": 24 },
+        "animate": { "opacity": 1, "y": 0 },
+        "transition": { "duration": 0.35 }
+      },
+      "header": {
+        "component": "SectionHeader",
+        "title": "PaaS de IA Whitelabel",
+        "subtitle": "Você vende IA com a sua marca. Nós operamos por trás.",
+        "pill": "Parte 1 — Atração"
+      },
+      "cta": { "label": "Veja o modelo", "href": "#model" }
+    },
+
+    {
+      "id": "model",
+      "component": "Section",
+      "motion": {
+        "initial": { "opacity": 0 },
+        "whileInView": { "opacity": 1 },
+        "transition": { "duration": 0.3 }
+      },
+      "header": {
+        "component": "SectionHeader",
+        "title": "Modelo de Negócio",
+        "subtitle": "Plataforma como Serviço — Whitelabel"
+      },
+      "grid": {
+        "columns": 3,
+        "cards": [
+          {
+            "component": "DocCard",
+            "icon": "badge-check",
+            "title": "Whitelabel total",
+            "body": "Sua marca, seu domínio, suas regras de preço. A plataforma fica invisível para o seu cliente."
+          },
+          {
+            "component": "DocCard",
+            "icon": "server-cog",
+            "title": "PaaS automatizado",
+            "body": "Provisionamento, integrações e agentes prontos. Você só liga e configura."
+          },
+          {
+            "component": "DocCard",
+            "icon": "repeat",
+            "title": "Receita recorrente",
+            "body": "Revenda agentes e camadas. Planos por nicho, uso ou resultado."
+          }
+        ]
+      },
+      "bullets": {
+        "items": [
+          "Você não compra uma ferramenta: você se torna uma plataforma.",
+          "Catálogo de agentes configuráveis para qualquer segmento.",
+          "Playbooks e treinamentos inclusos para implantar e escalar."
+        ]
+      },
+      "cta": { "label": "Começar pela captação", "href": "#intro" }
+    },
+
+    {
+      "id": "intro",
+      "component": "Section",
+      "motion": {
+        "initial": { "opacity": 0 },
+        "whileInView": { "opacity": 1 },
+        "transition": { "duration": 0.3 }
+      },
+      "layout": { "columns": 2 },
+      "left": {
+        "component": "Kicker",
+        "title": "Pessoas chegando até você todos os dias",
+        "body": "Sem equipe. Sem complicação. Sem códigos."
+      },
+      "right": {
+        "component": "Bullets",
+        "items": [
+          "Agentes coordenados captam demanda de forma contínua",
+          "Templates e playbooks inclusos para operar sem time técnico",
+          "Whitelabel: sua marca, seu domínio, seu preço"
+        ]
+      }
+    },
+
+    {
+      "id": "lp",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "Landing Pages Inteligentes",
+        "subtitle": "Crie e revenda páginas que convertem"
+      },
+      "grid": {
+        "columns": 3,
+        "cards": [
+          {
+            "component": "AgentCard",
+            "icon": "layout-template",
+            "title": "Templates prontos",
+            "body": "LPs por nicho com blocos reusáveis e branding do cliente.",
+            "chipsIn": ["Nicho", "Oferta", "Domínio"],
+            "chipsOut": ["URL publicada"],
+            "status": "Pronto"
+          },
+          {
+            "component": "AgentCard",
+            "icon": "wand",
+            "title": "Personalização simples",
+            "body": "Logo, domínio e textos em poucos cliques. Revenda como serviço.",
+            "chipsIn": ["Marca", "Tom de voz"],
+            "chipsOut": ["Padrões salvos"],
+            "status": "Pronto"
+          },
+          {
+            "component": "AgentCard",
+            "icon": "plug",
+            "title": "Integração direta",
+            "body": "Conecta em copy, criativos, tráfego e CRM do cliente.",
+            "chipsIn": ["Copy"],
+            "chipsOut": ["Assets da LP"],
+            "status": "Pronto"
+          }
+        ]
+      },
+      "motion": { "staggerChildren": 0.08 }
+    },
+
+    {
+      "id": "copy",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "Agentes de Copy",
+        "subtitle": "Textos que vendem — prontos para revenda"
+      },
+      "carousel": {
+        "component": "Carousel",
+        "items": [
+          {
+            "component": "AgentCard",
+            "icon": "type",
+            "title": "Copy para Páginas",
+            "body": "Headlines, benefícios, prova social e CTAs para o nicho do seu cliente.",
+            "chipsIn": ["Produto", "Persona", "Tom"],
+            "chipsOut": ["Seções da LP"]
+          },
+          {
+            "component": "AgentCard",
+            "icon": "megaphone",
+            "title": "Copy para Criativos",
+            "body": "Anúncios e roteiros ajustados ao canal. Reaproveite entre nichos.",
+            "chipsIn": ["Oferta", "Canal"],
+            "chipsOut": ["Variações aprovadas"]
+          }
+        ],
+        "options": { "loop": true, "dragFree": true, "align": "start" }
+      }
+    },
+
+    {
+      "id": "playbooks",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "Playbooks Prontos",
+        "subtitle": "Implante como especialista — sem ser técnico"
+      },
+      "grid": {
+        "columns": 3,
+        "cards": [
+          {
+            "component": "DocCard",
+            "icon": "checklist",
+            "title": "Checklist de Campanha",
+            "body": "Do briefing à publicação com etapas claras para o seu cliente."
+          },
+          {
+            "component": "DocCard",
+            "icon": "library",
+            "title": "LPs por Nicho",
+            "body": "Padrões prontos por segmento para acelerar a entrega."
+          },
+          {
+            "component": "DocCard",
+            "icon": "book-open",
+            "title": "Scripts validados",
+            "body": "Headlines e roteiros com histórico de conversão replicável."
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "traffic",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "Tráfego com IA",
+        "subtitle": "Você monetiza resultado — não horas"
+      },
+      "agents": {
+        "items": [
+          {
+            "component": "AgentCard",
+            "icon": "calendar-plus",
+            "title": "Plano de campanha",
+            "body": "Objetivo, orçamento e calendário por cliente.",
+            "status": "Pronto"
+          },
+          {
+            "component": "AgentCard",
+            "icon": "rocket",
+            "title": "Publicação",
+            "body": "Configura canais e lança com segurança no Google/Meta.",
+            "status": "Pronto"
+          },
+          {
+            "component": "AgentCard",
+            "icon": "activity",
+            "title": "Leitura de métricas",
+            "body": "Ajustes automáticos por desempenho e custo.",
+            "status": "Executando"
+          }
+        ]
+      },
+      "connectors": [
+        {
+          "component": "FlowConnector",
+          "from": "lp",
+          "to": "traffic",
+          "label": "Assets da LP"
+        },
+        {
+          "component": "FlowConnector",
+          "from": "creatives",
+          "to": "traffic",
+          "label": "Criativos aprovados"
+        },
+        {
+          "component": "FlowConnector",
+          "from": "traffic",
+          "to": "dashboard",
+          "label": "Métricas"
+        }
+      ]
+    },
+
+    {
+      "id": "creatives",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "Criativos com IA",
+        "subtitle": "Imagens e vídeos prontos para anunciar — como serviço"
+      },
+      "grid": {
+        "columns": 3,
+        "cards": [
+          {
+            "component": "AgentCard",
+            "icon": "clapperboard",
+            "title": "Roteiro de vídeo",
+            "body": "Roteiros alinhados com a copy do cliente.",
+            "chipsIn": ["Copy"],
+            "chipsOut": ["Script"]
+          },
+          {
+            "component": "AgentCard",
+            "icon": "image",
+            "title": "Geração de arte",
+            "body": "Variações para testes A/B e bibliotecas por nicho.",
+            "chipsIn": ["Brief"],
+            "chipsOut": ["Assets"]
+          },
+          {
+            "component": "AgentCard",
+            "icon": "scissors",
+            "title": "Edição via API",
+            "body": "Legendas, cortes e formatos prontos para mídia paga.",
+            "chipsIn": ["Clipes"],
+            "chipsOut": ["Pacote final"]
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "flow",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "Como o fluxo acontece",
+        "subtitle": "Do zero a oportunidades reais"
+      },
+      "stepper": {
+        "component": "Stepper",
+        "steps": [
+          {
+            "component": "StepTile",
+            "index": 1,
+            "title": "Oferta",
+            "caption": "Defina o que vende"
+          },
+          {
+            "component": "StepTile",
+            "index": 2,
+            "title": "Copy",
+            "caption": "Agentes escrevem"
+          },
+          {
+            "component": "StepTile",
+            "index": 3,
+            "title": "LP no ar",
+            "caption": "Publicação instantânea"
+          },
+          {
+            "component": "StepTile",
+            "index": 4,
+            "title": "Criativos",
+            "caption": "Vídeo e imagem"
+          },
+          {
+            "component": "StepTile",
+            "index": 5,
+            "title": "Campanhas",
+            "caption": "Rodando e otimizando"
+          }
+        ],
+        "connectors": [
+          { "fromIndex": 1, "toIndex": 2, "label": "brief" },
+          { "fromIndex": 2, "toIndex": 3, "label": "conteúdo" },
+          { "fromIndex": 3, "toIndex": 4, "label": "assets" },
+          { "fromIndex": 4, "toIndex": 5, "label": "criativos" }
+        ]
+      },
+      "motion": { "staggerChildren": 0.06 }
+    },
+
+    {
+      "id": "outcomes",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "O que você ganha agora",
+        "subtitle": "Resultados imediatos e revendíveis"
+      },
+      "metrics": {
+        "items": [
+          {
+            "component": "MetricBadge",
+            "value": "Leads diários",
+            "caption": "Previsibilidade para seus clientes"
+          },
+          {
+            "component": "MetricBadge",
+            "value": "Custos sob controle",
+            "caption": "Otimização contínua e guardrails"
+          },
+          {
+            "component": "MetricBadge",
+            "value": "Escala por nicho",
+            "caption": "Catálogo de agentes e planos whitelabel"
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "handoff",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "Transição para a Parte 2",
+        "subtitle": "Agentes que conversam e vendem"
+      },
+      "teaser": "Agora que você tem atenção, vamos transformar interesse em negócios.",
+      "cta": {
+        "label": "Quero ver como os agentes conversam com meus leads",
+        "href": "/parte2"
+      }
+    }
+  ]
+}

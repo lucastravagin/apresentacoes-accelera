@@ -1,0 +1,217 @@
+{
+  "sections": [
+    {
+      "id": "acquisition_intro",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "Quando o lead chega, a IA assume",
+        "subtitle": "Agentes que conversam, educam e vendem por você"
+      },
+      "layout": { "columns": 2 },
+      "left": {
+        "component": "Kicker",
+        "title": "Escala comercial automática",
+        "body": "Seu cliente cresce. Você cresce junto."
+      },
+      "right": {
+        "component": "Bullets",
+        "items": [
+          "Responde em segundos no canal certo",
+          "Nunca esquece follow-up",
+          "Opera 24/7 com o tom da marca",
+          "Você cobra pela performance entregue"
+        ]
+      },
+      "cta": { "label": "Ver agentes em ação", "href": "#router" }
+    },
+
+    {
+      "id": "router",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "Agente Roteador",
+        "subtitle": "O cérebro do atendimento"
+      },
+      "grid": {
+        "columns": 2,
+        "cards": [
+          {
+            "component": "AgentCard",
+            "icon": "git-branch",
+            "title": "Direcionamento inteligente",
+            "body": "Identifica intenção, urgência e perfil.",
+            "chipsIn": ["Lead", "Mensagem"],
+            "chipsOut": ["Agente ideal"],
+            "status": "Executando"
+          },
+          {
+            "component": "AgentCard",
+            "icon": "message-square",
+            "title": "Canal certo",
+            "body": "Cada conversa acontece onde o lead já está.",
+            "chipsIn": ["WhatsApp", "Instagram"],
+            "chipsOut": ["Fluxo contínuo"]
+          }
+        ]
+      },
+      "teaser": "Zero desperdício. Cada lead no melhor caminho."
+    },
+
+    {
+      "id": "direct_sales",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "Vendas Diretas Automatizadas",
+        "subtitle": "Venda sem call, sem mão de obra"
+      },
+      "carousel": {
+        "component": "Carousel",
+        "items": [
+          {
+            "component": "AgentCard",
+            "icon": "workflow",
+            "title": "Coordenação Automática",
+            "body": "Conversa guiada com foco na conversão."
+          },
+          {
+            "component": "AgentCard",
+            "icon": "graduation-cap",
+            "title": "Oferta + Educação",
+            "body": "Explica, convence e quebra objeções em tempo real."
+          },
+          {
+            "component": "AgentCard",
+            "icon": "trending-up",
+            "title": "Upsell / Downsell",
+            "body": "Maximiza ticket e reduz abandono sem esforço."
+          },
+          {
+            "component": "AgentCard",
+            "icon": "refresh-ccw",
+            "title": "Follow-up Automático",
+            "body": "Nunca perde interesse por falta de contato."
+          }
+        ]
+      },
+      "tagline": "Você dorme. Os agentes vendem.",
+      "cta": { "label": "Ver agendamento inteligente", "href": "#call_sales" }
+    },
+
+    {
+      "id": "call_sales",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "Conversão com Agendamento de Call",
+        "subtitle": "Seu time só fala com quem quer fechar"
+      },
+      "stepper": {
+        "component": "Stepper",
+        "steps": [
+          {
+            "index": 1,
+            "title": "Diagnóstico inicial",
+            "caption": "Qualificação do lead"
+          },
+          { "index": 2, "title": "Pré-venda", "caption": "Educação rápida" },
+          {
+            "index": 3,
+            "title": "Agendamento",
+            "caption": "Call marcada na agenda"
+          },
+          {
+            "index": 4,
+            "title": "Anti-no-show",
+            "caption": "Confirmação automática"
+          },
+          {
+            "index": 5,
+            "title": "Downsell",
+            "caption": "Apareceu objeção? Alternativa pronta"
+          },
+          { "index": 6, "title": "Follow-up", "caption": "Nutre até fechar" },
+          { "index": 7, "title": "Resgate", "caption": "Chama quem sumiu" }
+        ],
+        "connectors": [
+          { "fromIndex": 1, "toIndex": 2 },
+          { "fromIndex": 2, "toIndex": 3 },
+          { "fromIndex": 3, "toIndex": 4 },
+          { "fromIndex": 4, "toIndex": 5 },
+          { "fromIndex": 5, "toIndex": 6 },
+          { "fromIndex": 6, "toIndex": 7 }
+        ]
+      },
+      "tagline": "Fechamentos mais rápidos. Calendário sempre cheio."
+    },
+
+    {
+      "id": "gpt_support",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "GPT de Backstage",
+        "subtitle": "O método de vendas do seu cliente nas mãos da IA"
+      },
+      "grid": {
+        "columns": 3,
+        "cards": [
+          {
+            "component": "DocCard",
+            "icon": "sparkles",
+            "title": "Gerador de Playbook SDR",
+            "body": "SDR replicável por todos os clientes"
+          },
+          {
+            "component": "DocCard",
+            "icon": "sparkles",
+            "title": "Gerador de Playbook Closer",
+            "body": "Scripts personalizados para fechar"
+          },
+          {
+            "component": "DocCard",
+            "icon": "sparkles",
+            "title": "Gerador de Playbook BDR",
+            "body": "Expansão e cross-sell contínuos"
+          }
+        ]
+      },
+      "teaser": "Treine uma vez. Escale para todo o portfólio."
+    },
+
+    {
+      "id": "results_conversion",
+      "component": "Section",
+      "header": {
+        "component": "SectionHeader",
+        "title": "Resultados que aparecem em dias",
+        "subtitle": "E aumentam a receita recorrente do seu cliente (e a sua)"
+      },
+      "metrics": {
+        "items": [
+          {
+            "component": "MetricBadge",
+            "value": "+ Conversão",
+            "caption": "Mais vendas por lead"
+          },
+          {
+            "component": "MetricBadge",
+            "value": "- No-show",
+            "caption": "Calls que realmente acontecem"
+          },
+          {
+            "component": "MetricBadge",
+            "value": "+ Ticket",
+            "caption": "Upsell automático = nova receita"
+          }
+        ]
+      },
+      "cta": {
+        "label": "Como a IA mantém os clientes pagando todo mês?",
+        "href": "#retention"
+      }
+    }
+  ]
+}

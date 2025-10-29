@@ -1,0 +1,297 @@
+Forma de navegação
+1) Página única com scrollytelling
+
+Quando usar: para contar a história inteira de ponta a ponta, camada por camada.
+
+Como:
+
+Seções em tela cheia com scroll-snap e IDs.
+
+Um minimapa sticky no lado direito mostrando as camadas. Avança conforme você rola.
+
+Progresso de leitura no topo que preenche de 0 a 100%.
+
+Conteúdo “zoomável”: começa com o mapa geral e, ao rolar, faz zoom em cada grupo.
+
+Bônus: fácil gravar a sequência inteira e exportar como vídeo de demo.
+
+2) Carrossel, mas pontual
+
+Quando usar: para mostrar variações de um mesmo bloco, por exemplo 5 “Agentes Operacionais” ou 3 exemplos de fluxos.
+
+Como:
+
+Embute um carrossel dentro da seção. Mantém foco no tema, mas permite navegar entre itens irmãos.
+
+Suporte a mouse, teclado e swipe.
+
+3) Atalhos de teclado e hash na URL
+
+Setas para navegar entre seções.
+
+/#execucao, /#artefatos etc. ajudam o público a voltar em um ponto específico.
+
+Mantém a sensação de “slides”, mas com fluidez de web.
+
+Stack de interações e animações
+
+Framer Motion: core das transições. Use whileInView para animar entrada dos blocos, layout para rearranjos suaves, AnimatePresence para trocas entre vistas.
+
+Lenis ou Smooth Scroll: scroll suave sem travar.
+
+GSAP ScrollTrigger se quiser coreografar zooms ou linhas se desenhando conforme a rolagem.
+
+Embla Carousel ou Swiper: carrosséis acessíveis e performáticos.
+
+React Aria Components para navegação e foco corretos sem dor de cabeça.
+
+Tempos de animação entre 200 e 300 ms. Curvas “easeOut” para entradas, “easeIn” para saídas. Nada de carnaval visual. É infra para leigos, tem de parecer simples.
+
+Esqueleto de componentes
+
+Section: wrapper de tela cheia com scroll-snap-align: start.
+
+SectionHeader: título, subtítulo e a pill da camada.
+
+GroupFrame: moldura contendo os AgentCard.
+
+AgentCard: ícone, título, 1 frase, chips de “Entradas/ Saídas”.
+
+FlowConnector: SVG com label “dados”, “artefatos”, “logs”.
+
+MiniMap: lista de seções fixa; destaca a atual.
+
+MetricBadge: número grande com legenda.
+
+StepTile: passo numerado para fluxos.
+
+Dica de HTML/CSS:
+
+Grid de 12 colunas com container queries para adaptar a densidade.
+
+scroll-snap-type: y mandatory no container principal.
+
+Variáveis CSS para espaçamentos e raios, assim você mantém consistência sem depender de cor.
+
+Tipografia recomendada
+
+Escolha 1 e seja fiel até o fim. Todas são gratuitas e excelentes para produto.
+
+Inter
+
+Claríssima em telas e números.
+
+Ótima para dashboards e textos curtos.
+
+IBM Plex Sans
+
+Um pouco mais técnica. Combina com temas de infraestrutura e documentação.
+
+Source Sans 3
+
+Neutra e legível. Boa se você quer um tom mais editorial.
+
+Se for mostrar métricas gigantes ou trechos técnicos, você pode parear com JetBrains Mono só para números e código, mantendo a principal para o resto.
+
+Bibliotecas de ícones de alta qualidade
+
+Lucide
+
+Limpos, consistentes, árvore pequena. Versão React oficial.
+
+Ideal para “infra”, tem ícones ótimos de fluxo, nuvem, API.
+
+Tabler Icons
+
+Enorme variedade e ótima coerência.
+
+Bons pictogramas para banco de dados, pipelines, monitoramento.
+
+Phosphor
+
+Conjuntos com peso variável.
+
+Excelente para usar um mesmo ícone em tamanhos distintos sem perder força.
+
+Heroicons
+
+Minimalistas, perfeitos para UI de painel.
+
+Ótimos se você quer poucos ícones, mas muito claros.
+
+Padrões de uso:
+
+Defina um tamanho base para ícones em cards e outro para cabeçalhos.
+
+Mantém a espessura do traço consistente.
+
+Não misture famílias no mesmo slide.
+
+Padrões de layout
+
+Seção de abertura: mapa geral da plataforma com os blocos. Anima a entrada dos grupos por “stagger”.
+
+Seções de grupo: duas colunas. Esquerda explica “o que entra/sai”, direita mostra 2–3 AgentCards e um FlowConnector.
+
+Seção de fluxo: stepper horizontal com 5 StepTiles. Conectores acendem conforme a rolagem.
+
+Seção de métrica: três MetricBadges grandes, legenda curta, e link para “como medimos”.
+
+Acessibilidade e foco
+
+Navegação por teclado sempre ativa.
+
+aria-current="true" no item do MiniMap referente à seção atual.
+
+prefers-reduced-motion: se ativo, reduza para fades simples.
+
+Tamanho mínimo de corpo 16 px.
+
+Quando usar apenas carrossel como estrutura principal
+
+Se sua apresentação precisa ser controlada por cliques em palco, com ritmo travado.
+
+Nesse caso, use Embla em tela cheia, cada slide uma Section, e mantenha o minimapa como paginação.
+
+Resumo prático do que eu faria
+
+One-page com scroll-snap.
+
+MiniMap sticky e progress bar no topo.
+
+Animações com Framer Motion.
+
+Carrosséis Embla dentro das seções que exigem variações.
+
+Tipografia Inter ou IBM Plex Sans.
+
+Ícones Lucide ou Tabler, apenas uma família.
+
+
+2) Blueprint de componentes e props
+
+Não é código executável. É um “contrato” para você implementar em React com Framer Motion, Embla, etc.
+
+Section
+
+id: string
+
+children: ReactNode
+
+motion?: MotionProps
+
+snap?: "start" | "center" | "end"
+
+SectionHeader
+
+title: string
+
+subtitle?: string
+
+pill?: string
+
+align?: "left" | "center"
+
+AgentCard
+
+icon: IconName (use uma única família: Lucide/Tabler/Phosphor/Heroicons)
+
+title: string
+
+body: string
+
+chipsIn?: string[]
+
+chipsOut?: string[]
+
+status?: "Rascunho" | "Pronto" | "Executando"
+
+onClick?: () => void
+
+motion?: MotionProps
+
+DocCard
+
+icon: IconName
+
+title: string
+
+body: string
+
+Carousel
+
+items: ComponentSpec[] (ex: AgentCard[])
+
+options?: { loop?: boolean; dragFree?: boolean; align?: "start" | "center" }
+
+ariaLabel?: string
+
+FlowConnector
+
+from: string
+
+to: string
+
+label?: string
+
+animated?: boolean (desenho do traço ao entrar)
+
+Stepper
+
+steps: StepTile[]
+
+connectors?: { fromIndex: number; toIndex: number; label?: string }[]
+
+activeIndex?: number
+
+onStepChange?: (i:number) => void
+
+StepTile
+
+index: number
+
+title: string
+
+caption?: string
+
+motion?: MotionProps
+
+MetricBadge
+
+value: string | number
+
+caption: string
+
+MiniMap
+
+items: { id: string; label: string }[]
+
+currentId: string
+
+onSelect: (id: string) => void
+
+ariaLabel?: string
+
+3) Dicas de animação (Framer Motion)
+
+Entrada de seção: { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, transition: { duration: 0.3 } }
+
+Stagger em grids: aplique no contêiner variants com staggerChildren: 0.06.
+
+Hover em cards: whileHover={{ y: -2, scale: 1.01 }} + sombra sutil.
+
+Conectores: desenhe as linhas em SVG com pathLength animando de 0 para 1 em ~0.5s.
+
+Stepper: ao entrar no viewport, avance activeIndex com um setInterval lento ou sincronize com scroll via IntersectionObserver.
+
+4) Como ligar tudo rapidamente
+
+Carregue o JSON e valide com um tipo simples (ex.: Zod).
+
+Mapeie sections para <Section> com id e scroll-snap.
+
+Renderize header, grid.cards, carousel.items, stepper, metrics conforme component.
+
+MiniMap: use ResizeObserver + IntersectionObserver para marcar currentId.
+
+Acessibilidade: setas de teclado para trocar seção; aria-current="true" no item ativo; respeite prefers-reduced-motion.

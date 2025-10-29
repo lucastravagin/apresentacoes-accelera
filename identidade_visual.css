@@ -1,0 +1,133 @@
+tor-icon-box-title a{font-size:30px;}.elementor-25872 .elementor-element.elementor-element-438a474 .elementor-icon-box-title, .elementor-25872 .elementor-element.elementor-element-438a474 .elementor-icon-box-title a{font-size:30px;}.elementor-25872 .elementor-element.elementor-element-d4a7f01 .elementor-icon-box-title, .elementor-25872 .elementor-element.elementor-element-d4a7f01 .elementor-icon-box-title a{font-size:30px;}.elementor-25872 .elementor-element.elementor-element-f2d08ae{--e-n-carousel-swiper-slides-to-display:1;}.elementor-25872 .elementor-element.elementor-element-ed9109f{--margin-top:0px;--margin-bottom:0px;--margin-left:0px;--margin-right:0px;--padding-top:60px;--padding-bottom:60px;--padding-left:20px;--padding-right:20px;}.elementor-25872 .elementor-element.elementor-element-a3f1dc0{width:100%;max-width:100%;}.elementor-25872 .elementor-element.elementor-element-7c5d746{--margin-top:0px;--margin-bottom:0px;--margin-left:0px;--margin-right:0px;--padding-top:60px;--padding-bottom:20px;--padding-left:20px;--padding-right:20px;}.elementor-25872 .elementor-element.elementor-element-9e31b17 .elementor-icon-box-title, .elementor-25872 .elementor-element.elementor-element-9e31b17 .elementor-icon-box-title a{font-size:1.8rem;}.elementor-25872 .elementor-element.elementor-element-09710f1{--padding-top:60px;--padding-bottom:60px;--padding-left:20px;--padding-right:20px;}.elementor-25872 .elementor-element.elementor-element-3c9f055{width:100%;max-width:100%;}.elementor-25872 .elementor-element.elementor-element-13d7116 {--n-accordion-padding:15px 20px 15px 20px;}.elementor-25872 .elementor-element.elementor-element-13d7116{--n-accordion-title-font-size:1.1rem;}.elementor-25872 .elementor-element.elementor-element-48b3260{--justify-content:center;--padding-top:20px;--padding-bottom:20px;--padding-left:20px;--padding-right:20px;}.elementor-25872 .elementor-element.elementor-element-a3b7d10{width:100%;max-width:100%;}.elementor-25872 .elementor-element.elementor-element-a3b7d10 .elementor-button{font-size:1rem;}
+
+@media(min-width:768px){.elementor-25872 .elementor-element.elementor-element-da95e8a{--content-width:1140px;}.elementor-25872 .elementor-element.elementor-element-80d1e67{--width:fit-content;}.elementor-25872 .elementor-element.elementor-element-deaee53{--content-width:1140px;}.elementor-25872 .elementor-element.elementor-element-7ddef98{--content-width:1080px;}.elementor-25872 .elementor-element.elementor-element-ec4f662{--width:40%;}.elementor-25872 .elementor-element.elementor-element-e75c13b{--width:40%;}.elementor-25872 .elementor-element.elementor-element-bfbb777{--width:fit-content;}.elementor-25872 .elementor-element.elementor-element-eb41664{--width:40%;}.elementor-25872 .elementor-element.elementor-element-0775e5d{--width:50%;}.elementor-25872 .elementor-element.elementor-element-a0cdf4a{--content-width:850px;}.elementor-25872 .elementor-element.elementor-element-41a7a96{--width:50%;}.elementor-25872 .elementor-element.elementor-element-da36f4a{--width:fit-content;}.elementor-25872 .elementor-element.elementor-element-7c5d746{--width:550px;}.elementor-25872 .elementor-element.elementor-element-09710f1{--content-width:600px;}.elementor-25872 .elementor-element.elementor-element-9ea27d3{--width:100%;}.elementor-25872 .elementor-element.elementor-element-e5ac4f8{--width:50%;}}
+
+@media(max-width:1024px) and (min-width:768px){.elementor-25872 .elementor-element.elementor-element-19fde7b{--width:500px;}.elementor-25872 .elementor-element.elementor-element-6a585ed{--width:100%;}.elementor-25872 .elementor-element.elementor-element-8a9a01c{--width:100%;}.elementor-25872 .elementor-element.elementor-element-24bf85e{--width:100%;}.elementor-25872 .elementor-element.elementor-element-599502d{--width:100%;}.elementor-25872 .elementor-element.elementor-element-2a0653a{--width:100%;}.elementor-25872 .elementor-element.elementor-element-e29ab27{--width:100%;}.elementor-25872 .elementor-element.elementor-element-0775e5d{--width:100%;}.elementor-25872 .elementor-element.elementor-element-41a7a96{--width:100%;}.elementor-25872 .elementor-element.elementor-element-7c5d746{--width:100%;}.elementor-25872 .elementor-element.elementor-element-e5ac4f8{--width:100%;}}
+
+@media(min-width:2400px){.elementor-25872 .elementor-element.elementor-element-19fde7b{--grid-auto-flow:row;}}
+
+.elementor-25872 .elementor-element.elementor-element-becf185 {
+    display: none;
+}
+
+.hero-extra {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.hero-extra::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    transform: translateY(-50%) skew(-20deg);
+    width: 20px;
+    height: 110%;
+    background: #6b43ef;
+    filter: blur(20px);
+    animation: purpleGlow 5s ease infinite;
+}
+
+@keyframes purpleGlow {
+    0% {
+        left: -10%;
+    }
+    100% {
+        left: 110%;
+    }
+}
+
+.elementor-25872 .elementor-element.elementor-element-8b6a228 .elementor-icon-box-description {
+    max-width: 650px !important;
+    margin-inline: auto;
+}
+
+.elementor-25872 .elementor-element.elementor-element-3714819 { display: none }
+
+.alunos-img {
+    transition: .3s ease;
+}
+
+.alunos-img:not(:first-child):not(:last-child) {
+    filter: drop-shadow(-5px 0 5px #00000090);
+}
+
+.alunos-img:hover {
+    transform: translateY(-5px);
+}
+
+.hero-glow-disabled::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.7);
+    background: #6b43ef30;
+    width: 150px;
+    height: 100px;
+    border-radius: 999px;
+    filter: blur(20px);
+}
+
+#hero-bg::before {
+    background-image: linear-gradient(180deg, #050409 5%, #05040900 15%, #05040900 90%, #050409) !important;
+}
+
+@media (max-width: 1024px) {
+    .elementor-25872 .elementor-element.elementor-element-1ba4e24 img {
+        content: url(https://accelera360.com.br/wp-content/uploads/2025/05/GRID2-MOB.avif);   
+    }
+}
+
+@media (max-width: 1024px) {
+    .elementor-25872 .elementor-element.elementor-element-262ea8c img {
+        content: url(https://accelera360.com.br/wp-content/uploads/2025/05/GRID6MOB.avif);   
+    }
+}
+
+.grid-section {
+    background: linear-gradient(to left , #070707 30%, #17162d, #070707 70%)
+}
+
+.elementor-25872 .elementor-element.elementor-element-ec4f662 .elementor-icon-box-description {
+    max-width: 500px;
+}
+
+.elementor-25872 .elementor-element.elementor-element-e4f2056 {
+    display: none;
+}
+
+.elementor-25872 .elementor-element.elementor-element-83d6248 {
+    display: none;
+}
+
+.elementor-25872 .elementor-element.elementor-element-97f6f0a {
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.elementor-25872 .elementor-element.elementor-element-97f6f0a .elementor-icon-box-description, .elementor-25872 .elementor-element.elementor-element-97f6f0a .elementor-icon-box-title {
+    max-width: 750px;
+}
+
+.card-modulos {
+    border-radius: 20px;
+    background: linear-gradient(to left, #17162d, #0C0C0C);
+}
+
+.elementor-25872 .elementor-element.elementor-element-49b5c05 {
+    background: linear-gradient(to right, transparent, #4620b760, transparent);
+}
+
+.elementor-25872 .elementor-element.elementor-element-13d7116 .e-n-accordion-item-title {
+    align-items: flex-start;
+}
+.elementor-25872 .elementor-element.elementor-element-13d7116 .e-n-accordion-item-title-icon {
+    padding-top: 6px;
+}
+
+.elementor-25872 .elementor-element.elementor-element-09710f1 {
+    background: linear-gradient(to left, #17162d, #0C0C0C)
+}

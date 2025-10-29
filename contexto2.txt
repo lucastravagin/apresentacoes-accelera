@@ -1,0 +1,50 @@
+PARTE 2 — CONVERSÃO E RETENÇÃO
+
+Objetivo: mostrar como os agentes transformam leads em clientes e mantêm receita recorrente.
+
+Estrutura visual:
+- Mesma navegação da Parte 1 (scroll-snap, minimap, progress bar)
+- Foco em fluxos conversacionais e automações de vendas
+- Demonstrar ROI e impacto na receita do cliente
+
+Seções principais:
+
+1. acquisition_intro
+   - Layout 2 colunas: problema vs solução
+   - Bullets animados com delay progressivo
+   - CTA para próxima seção
+
+2. router
+   - Grid 2 colunas com AgentCards
+   - Mostrar decisões inteligentes de roteamento
+   - Teaser destacado em roxo
+
+3. direct_sales
+   - Carousel com 4+ cards de agentes
+   - Tagline em negrito centralizado
+   - CTA para call_sales
+
+4. call_sales
+   - Stepper horizontal com 7 etapas
+   - Linha conectora animada
+   - Tagline de impacto
+
+5. gpt_support
+   - Grid 3 colunas com DocCards
+   - Ícone "sparkles" para GPT
+   - Teaser sobre escalabilidade
+
+6. results_conversion
+   - 3 MetricBadges grandes
+   - CTA para seção de retenção (futura)
+
+Animações específicas:
+- Bullets com border-left roxo
+- Cards com hover mais pronunciado
+- Stepper com linha gradiente de fundo
+- CTAs com efeito ripple ao hover
+
+Paleta:
+- Mesma da Parte 1 (roxo #6b43ef, fundos escuros)
+- Destaque em verde para métricas positivas
+- Vermelho para redução de problemas (no-show)
