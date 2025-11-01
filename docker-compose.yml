@@ -26,7 +26,7 @@ services:
       - "traefik.http.routers.traefik-secure.entrypoints=https"
       - "traefik.http.routers.traefik-secure.rule=Host(`traefik.accelera360.com.br`)"
       - "traefik.http.routers.traefik-secure.tls=true"
-      - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
+      - "traefik.http.routers.traefik-secure.tls.certresolver=letsencrypt"
 
   apresentacao:
     build:
@@ -46,7 +46,7 @@ services:
       - "traefik.http.routers.apresentacao-secure.entrypoints=https"
       - "traefik.http.routers.apresentacao-secure.rule=Host(`apresentacao.accelera360.com.br`)"
       - "traefik.http.routers.apresentacao-secure.tls=true"
-      - "traefik.http.routers.apresentacao-secure.tls.certresolver=cloudflare"
+      - "traefik.http.routers.apresentacao-secure.tls.certresolver=letsencrypt"
       - "traefik.http.services.apresentacao.loadbalancer.server.port=3000"
       - "traefik.http.middlewares.compress.compress=true"
       - "traefik.http.middlewares.security-headers.headers.stsSeconds=31536000"
