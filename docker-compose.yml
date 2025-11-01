@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  traefik:
+    image: traefik:v2.10
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik/traefik.yml:/traefik.yml:ro
+      - ./traefik/acme.json:/acme.json
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.entrypoints=http"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.accelera360.com.br`)"
+      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
+      - "traefik.http.routers.traefik-secure.entrypoints=https"
+      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.accelera360.com.br`)"
+      - "traefik.http.routers.traefik-secure.tls=true"
+      - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
+
+  apresentacao:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: apresentacao-accelera
+    restart: unless-stopped
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.apresentacao.entrypoints=http"
+      - "traefik.http.routers.apresentacao.rule=Host(`apresentacao.accelera360.com.br`)"
+      - "traefik.http.middlewares.apresentacao-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.apresentacao-https-redirect.redirectscheme.permanent=true"
+      - "traefik.http.routers.apresentacao.middlewares=apresentacao-https-redirect"
+      - "traefik.http.routers.apresentacao-secure.entrypoints=https"
+      - "traefik.http.routers.apresentacao-secure.rule=Host(`apresentacao.accelera360.com.br`)"
+      - "traefik.http.routers.apresentacao-secure.tls=true"
+      - "traefik.http.routers.apresentacao-secure.tls.certresolver=cloudflare"
+      - "traefik.http.services.apresentacao.loadbalancer.server.port=3000"
+      - "traefik.http.middlewares.compress.compress=true"
+      - "traefik.http.middlewares.security-headers.headers.stsSeconds=31536000"
+      - "traefik.http.middlewares.security-headers.headers.stsIncludeSubdomains=true"
+      - "traefik.http.middlewares.security-headers.headers.stsPreload=true"
+      - "traefik.http.routers.apresentacao-secure.middlewares=compress,security-headers"
+
+networks:
+  web:
+    external: true
