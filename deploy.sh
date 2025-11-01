@@ -8,8 +8,8 @@ touch traefik/acme.json
 chmod 600 traefik/acme.json
 
 # Build e deploy
-docker-compose build --no-cache
-docker-compose up -d
+docker compose build --no-cache
+docker compose up -d
 
 echo "Deploy concluído!"
 echo "Acesse: https://apresentacao.accelera360.com.br"
